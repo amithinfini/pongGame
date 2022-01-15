@@ -1,6 +1,7 @@
 # Pong Game
 
 import turtle
+import winsound
 
 wn = turtle.Screen()  # creating the window
 wn.title("Pong by @amithinfini")
@@ -113,6 +114,7 @@ while True:
         scoreA += 1
         pen.clear()
         pen.write("Player A: {}  Player B: {}".format(scoreA, scoreB), align="center", font=("Courier", 20, "normal"))
+        winsound.PlaySound("mixkit-game-show-wrong-answer-buzz-950.wav", winsound.SND_ASYNC)
 
     if ball.xcor() < -390:
         ball.goto(0,0)
@@ -120,12 +122,15 @@ while True:
         scoreB += 1
         pen.clear()
         pen.write("Player A: {}  Player B: {}".format(scoreA, scoreB), align="center", font=("Courier", 20, "normal"))
+        winsound.PlaySound("mixkit-game-show-wrong-answer-buzz-950.wav", winsound.SND_ASYNC)
 
     # Paddle and ball collisions
     if (ball.xcor() > 330 and ball.xcor() < 350) and (ball.ycor() < paddleB.ycor() + 50 and ball.ycor() > paddleB.ycor() - 50):
         ball.setx(330)
         ball.dx *= -1
+        winsound.PlaySound("Ping-pong-ball-bounce-sound-effect.wav", winsound.SND_ASYNC)
 
     if (ball.xcor() < -330 and ball.xcor() > -350) and (ball.ycor() < paddleA.ycor() + 50 and ball.ycor() > paddleA.ycor() - 50):
         ball.setx(-330)
         ball.dx *= -1
+        winsound.PlaySound("Ping-pong-ball-bounce-sound-effect.wav", winsound.SND_ASYNC)
