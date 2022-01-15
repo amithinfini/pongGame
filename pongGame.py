@@ -39,6 +39,15 @@ ball.goto(0, 0)
 ball.dx = 0.1
 ball.dy = 0.1
 
+# Pen
+pen = turtle.Turtle()
+pen.speed(0)  # this is the speed of animation
+pen.color("white")
+pen.penup()
+pen.hideturtle()
+pen.goto(0, 260)
+pen.write("Player A: 0  Player B: 0", align="center", font=("Courier", 20, "normal"))
+
 
 # Functions
 # to move the Paddle A Up
