@@ -30,6 +30,12 @@ paddleB.goto(350, 0)
 
 
 # Ball
+ball = turtle.Turtle()
+ball.speed(0)  # this is the speed of animation
+ball.shape("circle")
+ball.color("white")
+ball.penup()  # turtles draw a line as they move, so we dont need to do it
+ball.goto(0, 0)
 
 
 # Main game loop
