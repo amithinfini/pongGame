@@ -33,9 +33,11 @@ paddleB.goto(350, 0)
 ball = turtle.Turtle()
 ball.speed(0)  # this is the speed of animation
 ball.shape("circle")
-ball.color("white")
+ball.color("blue")
 ball.penup()  # turtles draw a line as they move, so we dont need to do it
 ball.goto(0, 0)
+ball.dx = 0.1
+ball.dy = 0.1
 
 
 # Functions
@@ -78,3 +80,24 @@ wn.onkeypress(paddleBDwn, "Down")
 # Main game loop
 while True:
     wn.update()
+
+    # Ball movement
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
+
+    #Border checking
+    if ball.ycor() > 290:
+        ball.sety(290)
+        ball.dy *= -1
+
+    if ball.ycor() < -290:
+        ball.sety(-290)
+        ball.dy *= -1
+
+    if ball.xcor() > 390:
+        ball.goto(0,0)
+        ball.dx *= -1
+
+    if ball.xcor() < -390:
+        ball.goto(0,0)
+        ball.dx *= -1
