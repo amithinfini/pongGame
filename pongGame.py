@@ -38,6 +38,43 @@ ball.penup()  # turtles draw a line as they move, so we dont need to do it
 ball.goto(0, 0)
 
 
+# Functions
+# to move the Paddle A Up
+def paddleAUp():
+    y = paddleA.ycor()  # gets the y cordinate of Paddle A
+    y += 20
+    paddleA.sety(y)
+
+
+# to move PAddle A down
+def paddleADwn():
+    y = paddleA.ycor()  # gets the y cordinate of Paddle A
+    y -= 20
+    paddleA.sety(y)
+
+
+# to move the Paddle B Up
+def paddleBUp():
+    y = paddleB.ycor()  # gets the y cordinate of Paddle A
+    y += 20
+    paddleB.sety(y)
+
+
+# to move PAddle B down
+def paddleBDwn():
+    y = paddleB.ycor()  # gets the y cordinate of Paddle A
+    y -= 20
+    paddleB.sety(y)
+
+
+# Keyboard binding
+wn.listen()
+wn.onkeypress(paddleAUp, "w")
+wn.onkeypress(paddleADwn, "s")
+wn.onkeypress(paddleBUp, "Up")
+wn.onkeypress(paddleBDwn, "Down")
+
+
 # Main game loop
 while True:
     wn.update()
