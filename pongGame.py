@@ -9,6 +9,10 @@ wn.setup(width=800, height=600)
 wn.tracer(0)  # to manually update, so the game is fast
 
 
+# Score Board
+scoreA = 0
+scoreB = 0
+
 # Paddle A
 paddleA = turtle.Turtle()
 paddleA.speed(0)  # this is the speed of animation
@@ -106,10 +110,16 @@ while True:
     if ball.xcor() > 390:
         ball.goto(0,0)
         ball.dx *= -1
+        scoreA += 1
+        pen.clear()
+        pen.write("Player A: {}  Player B: {}".format(scoreA, scoreB), align="center", font=("Courier", 20, "normal"))
 
     if ball.xcor() < -390:
         ball.goto(0,0)
         ball.dx *= -1
+        scoreB += 1
+        pen.clear()
+        pen.write("Player A: {}  Player B: {}".format(scoreA, scoreB), align="center", font=("Courier", 20, "normal"))
 
     # Paddle and ball collisions
     if (ball.xcor() > 330 and ball.xcor() < 350) and (ball.ycor() < paddleB.ycor() + 50 and ball.ycor() > paddleB.ycor() - 50):
